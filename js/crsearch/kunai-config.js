@@ -132,10 +132,10 @@ class Config {
   }
 
   constructor(data) {
+    const article_processor = new ArticleProcessor
     this.article = new Map
     {
-      const e = Config.parseMD(data['article.md'], new ArticleProcessor)
-      // console.log(e)
+      const e = Config.parseMD(data['article.md'], article_processor)
       this.article.set(
         Prop.toplevel_category,
         e
