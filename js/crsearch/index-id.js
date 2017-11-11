@@ -1,5 +1,7 @@
 import {IndexType as IType} from './index-type'
 
+require('core-js/fn/array/includes');
+
 class IndexID {
   static VERBATIM_TRS = new Map([
     ['コンストラクタ', {to: '(constructor)', only: IType.mem_fun}],
