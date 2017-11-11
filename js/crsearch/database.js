@@ -9,6 +9,7 @@ import URL from 'url-parse'
 
 import * as Query from './query'
 
+require('core-js/fn/array/entries');
 
 class Database {
   constructor(log, json) {
