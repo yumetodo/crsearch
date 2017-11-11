@@ -90,7 +90,7 @@ class ArticleProcessor {
 
           const heading = Symbol.for(token.get('text').trim())
           if (!this.zoneProc.has(heading)) {
-            console.log("kunai-config.js:93==>throw", heading, this.zoneProc); throw new UnhandledHeading(token)
+            console.log("kunai-config.js:93==>throw", this.zoneProc); throw new UnhandledHeading(token)
           }
 
           this.currentZoneProc = this.zoneProc.get(heading)
