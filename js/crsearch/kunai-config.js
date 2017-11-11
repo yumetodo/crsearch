@@ -90,14 +90,14 @@ class ArticleProcessor {
 
           const heading = Symbol.for(token.get('text').trim())
           if (!this.zoneProc.has(heading)) {
-            throw new UnhandledHeading(token)
+            console.log("kunai-config.js:93==>throw", this.zoneProc); throw new UnhandledHeading(token)
           }
 
           this.currentZoneProc = this.zoneProc.get(heading)
-
+          if(null == this.currentZoneProc) console.log("kunai-config.js:97==>this.currentZoneProc is null");
         } catch (e) {
           if (e instanceof UnhandledHeading) {
-            // console.log('skipping!', e)
+            console.log('kunai-config.js:100==>skipping!', e)
             this.currentZoneProc = null
 
           } else {
@@ -132,10 +132,10 @@ class Config {
   }
 
   constructor(data) {
-    const article_processor = new ArticleProcessor
+    const article_processor = new ArticleProcessor; console.log("kunai-config.js:135==>", article_processor);
     this.article = new Map
     {
-      const e = Config.parseMD(data['article.md'], article_processor)
+      const e = Config.parseMD(data['article.md'], article_processor); console.log("kunai-config.js:138==>", e, article_processor)
       this.article.set(
         Prop.toplevel_category,
         e

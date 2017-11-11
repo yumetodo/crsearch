@@ -233,7 +233,7 @@ class Database {
     console.time(runID)
 
     let toplevels = Array.from(this.topNamespaces).map(([name, ns]) => {
-      return {
+      console.log("crsearch/database.js:234==>", ns, ns.namespace, kc, kc.categories(), kc.categories().has(ns.namespace[0])); return {
         category: kc.categories().get(ns.namespace[0]),
         namespace: ns,
         root: this.root_articles.get(
@@ -243,7 +243,7 @@ class Database {
         headers: [],
       }
     }).sort((a, b) => {
-      return a.category.index < b.category.index ? -1 : 1
+      console.log("crsearch/database.js:244==>", a, b); return a.category.index < b.category.index ? -1 : 1
     })
 
 
